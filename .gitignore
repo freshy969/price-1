@@ -1,0 +1,11 @@
+price/*/obj/
+price/*/bin/
+price/packages/*/*
+price/TestResults/
+price/Price.suo
+price/testimpactdata.sdf
+libs/*
+price/*.suo
+*.user
+*.suo
+price/Web/Scripts/bower_components/
