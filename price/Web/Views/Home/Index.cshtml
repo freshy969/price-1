@@ -1,0 +1,10 @@
+﻿@using Resources
+@using Model.Item;
+@{
+    ViewBag.Title = Views.HomePageTitle;
+}
+
+@foreach (ItemData Item in ViewBag.NewestItems)
+{
+    @Html.Partial("Partials/_ItemListItemCard", Item)
+}

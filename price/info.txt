@@ -1,0 +1,7 @@
+Logo: Segoe Script 26, color: #202338
+
+paint.net
+notepad++
+mysql workbench
+mysql server
+Visual Studio Community edition

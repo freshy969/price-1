@@ -1,0 +1,22 @@
+﻿@using Resources
+@{
+    ViewBag.Title = Views.AboutTitle;
+    var date = new DateTime(2016, 01, 01);
+}
+
+<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col about-content">
+    <div class="mdl-card__media mdl-color-text--grey-50">
+        <h3>@Views.AboutHeader</h3>
+    </div>
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta-info">
+        <div class="minilogo owner"></div>
+        <div>
+            <strong>@Views.SiteOwner</strong>
+            <span>@date.ToShortDateString()</span>
+        </div>
+        <div class="section-spacer"></div>
+    </div>
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text text-content">
+        @Html.Raw(Views.AboutContentRaw)
+    </div>
+</div>

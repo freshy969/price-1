@@ -1,0 +1,21 @@
+﻿@model Model.Item.ItemData
+
+<div class="mdl-card mdl-cell mdl-cell--6-col mdl-cell--12-col-tablet mdl-shadow--2dp mdl-color--white">
+    <div class="mdl-card__title">
+        <h3>
+            <a href="@Url.RouteUrl("Item", new { url = Model.Url })">@Model.Text</a>
+        </h3>
+    </div>
+    <div class="mdl-card__supporting-text mdl-color-text--grey-600 text-content">
+        <p>
+            Enim labore aliqua consequat ut quis ad occaecat aliquip incididunt. Sunt nulla eu enim irure enim nostrud aliqua consectetur ad consectetur sunt ullamco officia. Ex officia laborum et consequat duis.
+        </p>
+    </div>
+    <div class="mdl-card__supporting-text mdl-color-text--grey-600 meta-info">
+        <div class="minilogo owner"></div>
+        <div>
+            <strong>Meta</strong>
+            <span>2016.01.02</span>
+        </div>
+    </div>
+</div>

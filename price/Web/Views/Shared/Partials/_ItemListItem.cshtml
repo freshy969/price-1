@@ -1,0 +1,7 @@
+﻿@model Model.Item.ItemData
+
+<div>
+    <a href="@Url.RouteUrl("Item", new { url = Model.Url })">
+        @Model.Text
+    </a>
+</div>

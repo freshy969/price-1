@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @Resources.Views.SiteName</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+</head>
+<body class="meta">
+    <div class="mdl-layout mdl-js-layout has-drawer is-upgraded">
+
+        <header class="mdl-layout__header meta-header">
+            <div class="mdl-layout__header-row">
+                <a class="mdl-layout__title mdl-navigation__link" href="@Url.Action("Index", "Home", new { area = string.Empty })">@Resources.Views.SiteName</a>
+                <div class="mdl-layout-spacer"></div>
+                @Html.Partial("Partials/_MainMenu")
+            </div>
+        </header>
+        <div class="mdl-layout__drawer">
+            <a class="mdl-layout__title mdl-navigation__link" href="@Url.Action("Index", "Home", new { area = string.Empty })">@Resources.Views.SiteName</a>
+            @Html.Partial("Partials/_MainMenu")
+        </div>
+
+        <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="meta-content mdl-grid">
+
+                @RenderBody()
+
+            </div>
+        </main>
+        <footer class="mdl-mini-footer meta-footer">
+            <div class="mdl-mini-footer--content">
+                <div class="mdl-mini-footer--left-section">
+                    <div class="footer-content">&copy; @DateTime.Now.Year - <a class="mdl-navigation__link" href="@Url.Action("Index", "Home", new { area = string.Empty })">@Resources.Views.SiteName</a></div>
+                </div>
+                <div class="mdl-mini-footer--right-section">
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/material")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
