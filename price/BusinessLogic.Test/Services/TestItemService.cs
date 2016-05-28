@@ -23,11 +23,11 @@ namespace BusinessLogic.Test.DbIntegration.Service
 
         private readonly ItemEntity[] _Items = 
         {
-            new ItemEntity {Id = 1, Url = "Text1", Text = "Text1"},
-            new ItemEntity {Id = 2, Url = "Text2", Text = "Text2"},
-            new ItemEntity {Id = 3, Url = "Text3", Text = "Text3"},
-            new ItemEntity {Id = 4, Url = "Text4", Text = "Text4"},
-            new ItemEntity {Id = 5, Url = "Text5", Text = "Text5"},
+            new ItemEntity {Id = 1, Code = "Text1", Text = "Text1"},
+            new ItemEntity {Id = 2, Code = "Text2", Text = "Text2"},
+            new ItemEntity {Id = 3, Code = "Text3", Text = "Text3"},
+            new ItemEntity {Id = 4, Code = "Text4", Text = "Text4"},
+            new ItemEntity {Id = 5, Code = "Text5", Text = "Text5"},
         };
         /*
         public TestItemService(DbSessionFixture fixture) : base(fixture)
@@ -39,9 +39,9 @@ namespace BusinessLogic.Test.DbIntegration.Service
         {
             var prop = _Items[0];
             IItemService service = new ItemService(new ItemRepository());
-            ItemData actual = service.GetItem(prop.Id);
+            ItemDto actual = null;// service.GetItem(prop.Id);
 
-            Assert.Equal(1, actual.Id);
+            Assert.Equal("1", actual.Code);
         }
     }
 }

@@ -10,8 +10,8 @@ namespace Data.Generic
 
         void Update(T entity);
 
-        void Delete(int id);
+        void Delete(long id);
 
-        T GetById(int id);
+        T GetById(long id);
     }
 }

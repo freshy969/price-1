@@ -4,13 +4,16 @@
     <class name="ItemEntity" table="Items">
 
         <id name="Id" generator="identity">
-            <column name="id" sql-type="int" not-null="true" unique-key="true"/>
+            <column name="id" sql-type="bigint" not-null="true" unique-key="true"/>
         </id>
-        <property name="Url">
-            <column name="url" length="200" not-null="true" unique="true"/>
+        <property name="Code">
+            <column name="code" length="40" not-null="true" unique="true"/>
         </property>
         <property name="Text">
-            <column name="text" length="200" not-null="true"/>
+            <column name="text" length="200" not-null="true" unique="true"/>
+        </property>
+        <property name="Unit">
+            <column name="unit" length="40"/>
         </property>
 
     </class>

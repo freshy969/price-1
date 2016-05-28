@@ -1,21 +1,16 @@
-﻿using System.Collections.Generic;
-
-namespace Model.Item
+﻿namespace Model.Item
 {
     public class Item : Model
     {
-        public string Url { get; set; }
+        public string Code { get; set; }
 
-        public string Text { get; set; }
+        public string Name { get; set; }
 
-        public Item(int id, Metadata metadata) : base(id, metadata)
-        {
-
-        }
+        public string Unit { get; set; }
 
         public override string ToString()
         {
-            return $"Id: {Id}, Text: {Text}";
+            return $"Id: {Id}, Name: {Name}";
         }
     }
 }

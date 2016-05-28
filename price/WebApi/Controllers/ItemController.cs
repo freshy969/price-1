@@ -15,9 +15,9 @@ namespace WebApi.Controllers
         }
 
         [HttpGet]
-        public IList<ItemData> Get()
+        public IList<ItemDto> Get()
         {
-            return new List<ItemData> { _service.GetItem(1) };
+            return new List<ItemDto> { null };
         }
     }
 }

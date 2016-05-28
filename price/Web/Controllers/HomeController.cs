@@ -16,7 +16,7 @@ namespace Web.Controllers
 
         public ActionResult Index()
         {
-            ViewBag.NewestItems = new List<ItemData>();
+            ViewBag.NewestItems = new List<ItemDto>();
 
             return View();
         }

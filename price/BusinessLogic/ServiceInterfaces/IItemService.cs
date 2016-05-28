@@ -4,6 +4,6 @@ namespace BusinessLogic.ServiceInterfaces
 {
     public interface IItemService
     {
-        ItemData GetItem(int id);
+        Item EnsureItemWithUnit(string itemDescription);
     }
 }

@@ -5,13 +5,14 @@ namespace BusinessLogic.Mappers
 {
     internal class ItemMapper
     {
-        internal static ItemData MapToLinkModel(ItemEntity Item)
+        internal static Item MapToModel(ItemEntity item)
         {
-            return new ItemData()
+            return new Item()
             {
-                Id = Item.Id,
-                Url = Item.Url,
-                Text = Item.Text
+                Id = item.Id,
+                Code = item.Code,
+                Name = item.Text,
+                Unit = item.Unit
             };
         }
     }

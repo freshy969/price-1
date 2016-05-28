@@ -24,12 +24,12 @@ namespace Data.Generic
             Session.Update(entity);
         }
 
-        public void Delete(int id)
+        public void Delete(long id)
         {
             Session.Delete(Session.Load<T>(id));
         }
 
-        public T GetById(int id)
+        public T GetById(long id)
         {
             return Session.Get<T>(id);
         }

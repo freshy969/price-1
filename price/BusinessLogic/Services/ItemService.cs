@@ -1,32 +1,51 @@
 ﻿using System;
-using System.Collections.Generic;
 using BusinessLogic.ServiceInterfaces;
 using Data.Entities.Item;
 using Infrastructure.Attributes;
 using BusinessLogic.Mappers;
 using System.Linq;
 using Model.Item;
+using BusinessLogic.Utils;
 
 namespace BusinessLogic.Services
 {
     public class ItemService : IItemService
     {
-        private readonly IItemRepository _repository;
+        private readonly IItemRepository _rep;
 
         public ItemService(IItemRepository repository)
         {
-            _repository = repository;
+            _rep = repository;
         }
 
         [Transaction]
-        public ItemData GetItem(int id)
+        public Item EnsureItemWithUnit(string itemDescription)
         {
-            var Item = _repository.GetById(id);
-            if (Item == null)
+            itemDescription = itemDescription ?? "";
+
+            var parts = itemDescription.Split(',');
+
+            string name = parts[0].Trim();
+            string unit = parts.Count() > 1 ? parts[1] : null;
+
+            if (string.IsNullOrWhiteSpace(name))
             {
-                return null;
+                throw new Exception($"Incorrect item description provided: {itemDescription}");
             }
-            return ItemMapper.MapToLinkModel(Item);
+
+            var entity = _rep.GetByText(name);
+            if (entity == null)
+            {
+                entity = new ItemEntity
+                {
+                    Text = name,
+                    Unit = CodeUtils.CreateCode(unit),
+                    Code = CodeUtils.CreateCode(name)
+                };
+                _rep.Add(entity);
+            }
+
+            return ItemMapper.MapToModel(entity);
         }
 
     }

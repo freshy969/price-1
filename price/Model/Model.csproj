@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Item\ItemData.cs" />
+    <Compile Include="Item\ItemDto.cs" />
     <Compile Include="LinkModel.cs" />
     <Compile Include="Metadata.cs" />
     <Compile Include="Model.cs" />
@@ -50,6 +50,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ModelDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PricePoint\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

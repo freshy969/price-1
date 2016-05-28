@@ -21,7 +21,7 @@ namespace Data.Test.Entities.Item
             {
                 var prop = new ItemEntity();
                 prop.Id = 1;
-                prop.Url = "1";
+                prop.Code = "1";
                 prop.Text = "1";
 
                 session.Save(prop);

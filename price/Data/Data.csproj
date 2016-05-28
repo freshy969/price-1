@@ -75,13 +75,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\PricePoint\IPricePointRepository.cs" />
+    <Compile Include="Entities\PricePoint\PricePointEntity.cs" />
+    <Compile Include="Entities\PricePoint\PricePointRepository.cs" />
     <Compile Include="Generic\IGenericEntity.cs" />
-    <Compile Include="Entities\Proposition\ItemEntity.cs" />
+    <Compile Include="Entities\Item\ItemEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Generic\GenericRepository.cs" />
     <Compile Include="Generic\IGenericRepository.cs" />
-    <Compile Include="Entities\Proposition\IItemRepository.cs" />
-    <Compile Include="Entities\Proposition\ItemRepository.cs" />
+    <Compile Include="Entities\Item\IItemRepository.cs" />
+    <Compile Include="Entities\Item\ItemRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Mappings\Item.hbm.xml">
@@ -107,6 +110,11 @@
       <Project>{47b6588a-49e6-4fe3-81a7-c426a0ae3fce}</Project>
       <Name>Infrastructure</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Mappings\PricePoint.hbm.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

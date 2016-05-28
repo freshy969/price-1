@@ -20,6 +20,7 @@ namespace Data.Test
 
             RunSqlNonQuery(session, "SET foreign_key_checks = 0;");
             RunSqlNonQuery(session, "Delete from items");
+            RunSqlNonQuery(session, "Delete from prices");
             session.Flush();
             RunSqlNonQuery(session, "SET foreign_key_checks = 1;");
         }

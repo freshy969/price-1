@@ -2,6 +2,6 @@
 {
     public interface IGenericEntity
     {
-        int Id { get; }
+        long Id { get; }
     }
 }

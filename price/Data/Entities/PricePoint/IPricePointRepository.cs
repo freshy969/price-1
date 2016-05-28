@@ -5,8 +5,6 @@ namespace Data.Entities.PricePoint
 {
     public interface IPricePointRepository : IGenericRepository<PricePointEntity>
     {
-        //List<PricePointEntity> GetTopNewestPricePoints(int v);
-
-        //PricePointEntity GetByUrl(string url);
+        IList<PricePointEntity> GetItemPricesForYears(long itemId, int fromYear, int toYear);
     }
 }

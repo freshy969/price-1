@@ -38,7 +38,7 @@ namespace Data.Test.Entities.Item
         public void Add_WhenIdIsZero_SavesANewEntity()
         {
             var prop = new ItemEntity();
-            prop.Url = "Item4";
+            prop.Code = "Item4";
             prop.Text = "Item4";
 
             repository.Add(prop);
@@ -52,7 +52,7 @@ namespace Data.Test.Entities.Item
                 // Test that the product was successfully inserted
                 Assert.NotNull(fromDb);
                 Assert.NotSame(prop, fromDb);
-                Assert.Equal("Item4", fromDb.Url);
+                Assert.Equal("Item4", fromDb.Code);
                 Assert.Equal("Item4", fromDb.Text);
                 Assert.True(fromDb.Id > 3);
             }
@@ -62,7 +62,7 @@ namespace Data.Test.Entities.Item
         public void Add_ThrowsAnException_WhenSettingTheSameUrl()
         {
             var prop = new ItemEntity();
-            prop.Url = "pear";
+            prop.Code = "pear";
             prop.Text = "Pears";
 
             Assert.ThrowsAny<NHibernate.Exceptions.GenericADOException>(() => repository.Add(prop));
@@ -72,7 +72,7 @@ namespace Data.Test.Entities.Item
         public void Add_ThrowsAnException_WhenFieldValueIsNull()
         {
             var prop = new ItemEntity();
-            prop.Url = "orange";
+            prop.Code = "orange";
             prop.Text = null;
 
             Assert.ThrowsAny<PropertyValueException>(() => repository.Add(prop));
@@ -90,12 +90,12 @@ namespace Data.Test.Entities.Item
         public void Update_ExistingItem_WhenFound()
         {
             ItemEntity prop = _Items[0];
-            prop.Url = "Changed url";
+            prop.Code = "Changed url";
 
             repository.Update(prop);
 
             var fromDb = NhibernateUnitOfWork.Current.Session.Get<ItemEntity>(prop.Id);
-            Assert.Equal("Changed url", fromDb.Url);
+            Assert.Equal("Changed url", fromDb.Code);
         }
 
         [Fact]
@@ -106,7 +106,7 @@ namespace Data.Test.Entities.Item
             ItemEntity prop = new ItemEntity()
             {
                 Id = first.Id,
-                Url = "Changed url",
+                Code = "Changed url",
                 Text = "Melon"
             };
 
@@ -136,7 +136,7 @@ namespace Data.Test.Entities.Item
 
             Assert.NotNull(fromDb);
             Assert.NotSame(_Items[1], fromDb);
-            Assert.Equal("Apple", fromDb.Url);
+            Assert.Equal("Apple", fromDb.Code);
         }
 
         [Fact]
@@ -157,18 +157,35 @@ namespace Data.Test.Entities.Item
         }
 
         [Fact]
-        public void GetByUrl_ReturnsARecord_WhenFound()
+        public void GetByCode_ReturnsARecord_WhenFound()
         {
-            ItemEntity fromDb = repository.GetByUrl("Apple");
+            ItemEntity fromDb = repository.GetByCode("Apple");
 
             Assert.NotNull(fromDb);
             Assert.Equal(_Items.Last().Id, fromDb.Id);
         }
 
         [Fact]
-        public void GetByUrl_ReturnsNull_WhenNotFound()
+        public void GetByCode_ReturnsNull_WhenNotFound()
         {
-            ItemEntity fromDb = repository.GetByUrl("Apples");
+            ItemEntity fromDb = repository.GetByCode("Apples");
+
+            Assert.Null(fromDb);
+        }
+
+        [Fact]
+        public void GetByText_ReturnsARecord_WhenFound()
+        {
+            ItemEntity fromDb = repository.GetByText("Apple");
+
+            Assert.NotNull(fromDb);
+            Assert.Equal(_Items.Last().Id, fromDb.Id);
+        }
+
+        [Fact]
+        public void GetByText_ReturnsNull_WhenNotFound()
+        {
+            ItemEntity fromDb = repository.GetByText("Apples");
 
             Assert.Null(fromDb);
         }
