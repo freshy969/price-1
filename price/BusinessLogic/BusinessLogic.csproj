@@ -75,6 +75,8 @@
     <Compile Include="Mappers\ItemMapper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ServiceInterfaces\IItemService.cs" />
+    <Compile Include="ServiceInterfaces\IPricePointService.cs" />
+    <Compile Include="Services\PricePointService.cs" />
     <Compile Include="Services\ItemService.cs" />
     <Compile Include="Utils\CodeUtils.cs" />
     <Compile Include="Utils\CurrencyUtils.cs" />

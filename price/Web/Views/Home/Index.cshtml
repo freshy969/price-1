@@ -1,10 +1,14 @@
 ﻿@using Resources
-@using Model.Item;
 @{
     ViewBag.Title = Views.HomePageTitle;
+    var date = DateTime.Now;
 }
 
-@foreach (ItemData Item in ViewBag.NewestItems)
-{
-    @Html.Partial("Partials/_ItemListItemCard", Item)
-}
+<div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col index-content">
+    <div class="mdl-card__title">
+        <h3>@Views.IndexHeader</h3>
+    </div>
+    <div class="mdl-color-text--grey-700 mdl-card__supporting-text text-content">
+        @Html.Partial("Partials/_MainChart", new { ItemList = ViewBag.ItemList})
+    </div>
+</div>

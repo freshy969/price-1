@@ -7,6 +7,7 @@ using Data.Entities.Item;
 using BusinessLogic.ServiceInterfaces;
 using BusinessLogic.Services;
 using WebApi.Controllers;
+using Data.Entities.PricePoint;
 
 namespace Web.App_Start
 {
@@ -47,12 +48,17 @@ namespace Web.App_Start
             container.AddNewExtension<Interception>();
 
             container.RegisterType<IItemRepository, ItemRepository>();
+            container.RegisterType<IPricePointRepository, PricePointRepository>();
 
             container.RegisterType<IItemService, ItemService>(
                 new InterceptionBehavior<PolicyInjectionBehavior>(),
                 new Interceptor<InterfaceInterceptor>());
 
-            container.RegisterType<ItemController, ItemController>();
+            container.RegisterType<IPricePointService, PricePointService>(
+                new InterceptionBehavior<PolicyInjectionBehavior>(),
+                new Interceptor<InterfaceInterceptor>());
+
+            container.RegisterType<DataController, DataController>();
 
         }
     }

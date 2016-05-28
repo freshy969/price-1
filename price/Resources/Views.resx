@@ -135,6 +135,9 @@
   <data name="HomePageTitle" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="IndexHeader" xml:space="preserve">
+    <value>Consumer price history 2005-2016</value>
+  </data>
   <data name="ItemsTitle" xml:space="preserve">
     <value>Items</value>
   </data>

@@ -7,16 +7,16 @@ namespace Web.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IItemService _ItemService;
+        private readonly IItemService _itemService;
         
-        public HomeController(IItemService ItemService)
+        public HomeController(IItemService itemService)
         {
-            _ItemService = ItemService;
+            _itemService = itemService;
         }
 
         public ActionResult Index()
         {
-            ViewBag.NewestItems = new List<ItemDto>();
+            ViewBag.ItemList = _itemService.GetAll();
 
             return View();
         }

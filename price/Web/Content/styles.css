@@ -139,6 +139,9 @@ body.meta {
   margin-left: 16px;
   margin-right: 16px;
 }
+.meta .index-content .mdl-card__supporting-text.text-content {
+  padding: 16px;
+}
 .meta .mdl-card__supporting-text strong {
   font-weight: 400;
 }
@@ -622,7 +625,11 @@ body.meta {
 }
 
 .mdl-layout__title {
-  color: #465A63;
+    color: #465A63;
+}
+
+#codes {
+    font-size: 18px;
 }
 
 /* Footer */

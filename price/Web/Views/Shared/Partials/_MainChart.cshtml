@@ -1,0 +1,65 @@
+﻿@using Model.Item
+@{
+    List<ItemDto> items = ViewData.ContainsKey("ItemList") ? (List<ItemDto>)ViewData["ItemList"] : new List<ItemDto>();
+    IEnumerable<SelectListItem> converted = items.Select(a => new SelectListItem { Value = a.Code, Text = a.Label });
+}
+<div>
+    @Html.DropDownList("codes", converted)
+    <div id="chart_div" style="width: 800px; height: 450px;"></div>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        var select = document.getElementById('codes');
+        var chart;
+
+        function fixDate(data) {
+            var dateIndeces = [];
+            for (var i = 0; i < data.cols.length; i++) {
+                if (data.cols[i].type == 'date') {
+                    dateIndeces.push(i);
+                }
+            }
+
+            if (dateIndeces.length > 0) {
+                for (var i = 0; i < data.rows.length; i++) {
+                    var row = data.rows[i];
+                    for (var j = 0; j < dateIndeces.length; j++) {
+                        var val = row.c[dateIndeces[j]].v;
+                        row.c[dateIndeces[j]].v = new Date(val.substring(0, 10));
+                    }
+                }
+            }
+        }
+
+        function reloadData() {
+            var selectedValue = select.value;
+            var jsonData = $.ajax({
+                url: "api/data/get?item=" + selectedValue + "&from=2005&to=2016",
+                dataType: "json",
+                async: true
+            }).done(loadDataCallback).error(function () {
+                alert('Problema kraunant duomenis');
+            });
+        }
+
+        function loadDataCallback(data) {
+            fixDate(data);
+
+            var dataTable = new google.visualization.DataTable(data);
+            var options = {};
+
+            chart.draw(dataTable, options);
+        }
+
+        function drawChart() {
+            chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            reloadData();
+        }
+
+        select.onchange = reloadData;
+
+    </script>
+</div>

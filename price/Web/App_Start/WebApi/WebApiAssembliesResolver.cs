@@ -9,7 +9,7 @@ namespace Web.App_Start.WebApi
     {
         ICollection<Assembly> IAssembliesResolver.GetAssemblies()
         {
-            Assembly assembly = typeof(ItemController).Assembly;
+            Assembly assembly = typeof(DataController).Assembly;
             return new[] { assembly };
         }
     }

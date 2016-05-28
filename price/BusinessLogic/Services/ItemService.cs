@@ -6,6 +6,7 @@ using BusinessLogic.Mappers;
 using System.Linq;
 using Model.Item;
 using BusinessLogic.Utils;
+using System.Collections.Generic;
 
 namespace BusinessLogic.Services
 {
@@ -48,5 +49,13 @@ namespace BusinessLogic.Services
             return ItemMapper.MapToModel(entity);
         }
 
+        [Transaction]
+        public List<ItemDto> GetAll()
+        {
+            return _rep.GetAll()
+                .OrderBy(a => a.Text)
+                .Select(ItemMapper.MapToDto)
+                .ToList();
+        }
     }
 }

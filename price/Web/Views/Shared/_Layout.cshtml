@@ -32,15 +32,17 @@
 
             </div>
         </main>
-        <footer class="mdl-mini-footer meta-footer">
-            <div class="mdl-mini-footer--content">
-                <div class="mdl-mini-footer--left-section">
-                    <div class="footer-content">&copy; @DateTime.Now.Year - <a class="mdl-navigation__link" href="@Url.Action("Index", "Home", new { area = string.Empty })">@Resources.Views.SiteName</a></div>
-                </div>
-                <div class="mdl-mini-footer--right-section">
-                </div>
+        @*
+    <footer class="mdl-mini-footer meta-footer">
+        <div class="mdl-mini-footer--content">
+            <div class="mdl-mini-footer--left-section">
+                <div class="footer-content">&copy; @DateTime.Now.Year - <a class="mdl-navigation__link" href="@Url.Action("Index", "Home", new { area = string.Empty })">@Resources.Views.SiteName</a></div>
             </div>
-        </footer>
+            <div class="mdl-mini-footer--right-section">
+            </div>
+        </div>
+    </footer>
+        *@
     </div>
 
     @Scripts.Render("~/bundles/jquery")
