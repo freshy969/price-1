@@ -118,36 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutContentRaw" xml:space="preserve">
-    <value>&lt;p&gt;Infliacija is a historical price information site for Lithuania.&lt;/p&gt;</value>
+    <value>&lt;p&gt;Infliacija yra vartotojų prekių kainų Lietuvoje istorijos informacinė sistema.&lt;/p&gt;</value>
   </data>
   <data name="AboutHeader" xml:space="preserve">
-    <value>About Infliacija</value>
+    <value>Apie Infliacija</value>
   </data>
   <data name="AboutTitle" xml:space="preserve">
-    <value>About</value>
-  </data>
-  <data name="AdminPanelTitle" xml:space="preserve">
-    <value>Admin Panel</value>
-  </data>
-  <data name="ArgumentsTitle" xml:space="preserve">
-    <value>Arguments</value>
+    <value>Apie</value>
   </data>
   <data name="HomePageTitle" xml:space="preserve">
-    <value>Home</value>
+    <value>Pagrindinis</value>
   </data>
   <data name="IndexHeader" xml:space="preserve">
-    <value>Consumer price history 2005-2016</value>
-  </data>
-  <data name="ItemsTitle" xml:space="preserve">
-    <value>Items</value>
+    <value>Vartotojų kainų istorija 2005-2016</value>
   </data>
   <data name="SiteName" xml:space="preserve">
     <value>Infliacija</value>
   </data>
   <data name="SiteOwner" xml:space="preserve">
     <value>Infliacija</value>
-  </data>
-  <data name="TermsTitle" xml:space="preserve">
-    <value>Terms</value>
   </data>
 </root>

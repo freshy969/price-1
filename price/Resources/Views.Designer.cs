@@ -61,7 +61,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;p&gt;Infliacija is a price comparison site for Lithuania.&lt;/p&gt;.
+        ///   Looks up a localized string similar to &lt;p&gt;Infliacija is a historical price information site for Lithuania.&lt;/p&gt;.
         /// </summary>
         public static string AboutContentRaw {
             get {

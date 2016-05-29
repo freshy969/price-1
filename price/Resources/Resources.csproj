@@ -48,6 +48,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Views.lt.resx" />
     <EmbeddedResource Include="Views.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Views.Designer.cs</LastGenOutput>

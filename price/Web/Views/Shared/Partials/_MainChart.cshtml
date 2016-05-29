@@ -5,11 +5,12 @@
 }
 <div>
     @Html.DropDownList("codes", converted)
-    <div id="chart_div" style="width: 800px; height: 450px;"></div>
+    <div id="chart_div" style="width: 850px; height: 450px;"></div>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script type="text/javascript">
-        google.charts.load('current', { 'packages': ['corechart'] });
+        //google.charts.load('current', { 'packages': ['scatter'] });
+        google.charts.load('current', { 'packages': ['corechart'], 'language': document.documentElement.lang });
         google.charts.setOnLoadCallback(drawChart);
 
         var select = document.getElementById('codes');
@@ -49,13 +50,47 @@
             fixDate(data);
 
             var dataTable = new google.visualization.DataTable(data);
-            var options = {};
+            var options = {
+                width: 850,
+                height: 450,
+                chart: {
+                    
+                },
+                chartArea: {
+                    top: 30,
+                    left: 45,
+                    height: 360,
+                    width: 650
+                },
+                hAxis: { title: 'Laikas' },
+                vAxis: {
+                    title: 'Kaina, EUR',
+                    minValue: 0
+                },
+                axes: {
+                    x: {
+                        0: { side: 'bottom' }
+                    }
+                },
+                trendlines: {
+                    0: {
+                        type: 'polynomial',
+                        color: 'green',
+                        lineWidth: 3,
+                        opacity: 0.3,
+                        degree: 4
+                    }
+                }
+            };
 
+            //chart.draw(dataTable, google.charts.Scatter.convertOptions(options));
             chart.draw(dataTable, options);
         }
 
         function drawChart() {
-            chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+            //chart = new google.charts.Scatter(document.getElementById('chart_div'));
+            chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
+
             reloadData();
         }
 

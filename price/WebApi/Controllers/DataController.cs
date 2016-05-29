@@ -1,5 +1,6 @@
 ﻿using BusinessLogic.ServiceInterfaces;
 using Model.GoogleChart;
+using System.Threading;
 using System.Web.Http;
 
 namespace WebApi.Controllers
